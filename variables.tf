@@ -8,7 +8,7 @@ variable "cluster-name" {
   type    = string
 }
 variable "RDS_name"{
-  default = "mqbr-rds"
+  default = "mqbrRDS"
   type = string
 }
 variable "RDS_username"{
