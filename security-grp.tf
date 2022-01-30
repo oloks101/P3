@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_http" {
   name        = "allow_http"
   description = "Allow http inbound traffic"
-  vpc_id      = aws_vpc.demo.id
+  vpc_id      = aws_vpc.seera.id
 
   ingress {
     description = "TLS from VPC"

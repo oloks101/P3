@@ -21,26 +21,26 @@ resource "aws_iam_role" "demo-node" {
 POLICY
 }
 
-resource "aws_iam_role_policy_attachment" "demo-node-AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "mqbr-node-AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.demo-node.name
 }
 
-resource "aws_iam_role_policy_attachment" "demo-node-AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "mqbr-node-AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.demo-node.name
 }
 
-resource "aws_iam_role_policy_attachment" "demo-node-AmazonEC2ContainerRegistryReadOnly" {
+resource "aws_iam_role_policy_attachment" "mqbr-node-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.demo-node.name
 }
 
-resource "aws_eks_node_group" "demo" {
-  cluster_name    = aws_eks_cluster.demo.name
-  node_group_name = "demo"
-  node_role_arn   = aws_iam_role.demo-node.arn
-  subnet_ids      = aws_subnet.demo[*].id
+resource "aws_eks_node_group" "mqbr" {
+  cluster_name    = aws_eks_cluster.seera.name
+  node_group_name = "seera"
+  node_role_arn   = aws_iam_role.seera-cluster.arn
+  subnet_ids      = aws_subnet.seera[*].id
   instance_types = ["t2.micro"]
   scaling_config {
     desired_size = 2
@@ -49,13 +49,13 @@ resource "aws_eks_node_group" "demo" {
   }
 
   remote_access {
-  ec2_ssh_key = var.ssh_key_name
-  source_security_group_ids = [aws_security_group.allow_http.id]
+    ec2_ssh_key = var.ssh_key_name
+    source_security_group_ids = [aws_security_group.allow_http.id]
   }
 
   depends_on = [
-    aws_iam_role_policy_attachment.demo-node-AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.demo-node-AmazonEKS_CNI_Policy,
-    aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly,
+    aws_iam_role_policy_attachment.mqbr-node-AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.mqbr-node-AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.mqbr-node-AmazonEC2ContainerRegistryReadOnly,
   ]
 }

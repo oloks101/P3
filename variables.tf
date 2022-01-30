@@ -1,25 +1,25 @@
 variable "region" {
-  default = "ap-southeast-1"
+  default = "eu-west-1"
   type = string
 }
 
 variable "cluster-name" {
-  default = "do4m-eks-cluster"
+  default = "mqbr-eks-cluster"
   type    = string
 }
 variable "RDS_name"{
-  default = "do4m-rds"
+  default = "mqbr-rds"
   type = string
 }
 variable "RDS_username"{
-  default = "do4madmin"
+  default = "mqbr"
   type = string
 }
 variable "RDS_password"{
-  default = "N@jib1607"
+  default = "nW=-P7tz"
   type = string
 }
 variable "ssh_key_name"{
-  default = "do4m-wp-key"    //must be Present in AWS EC2 in Your Region
+  default = "mqbr-wp-key"    //must be Present in AWS EC2 in Your Region
   type = string
 }

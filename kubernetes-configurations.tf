@@ -4,7 +4,7 @@ resource "kubernetes_persistent_volume_claim" "wp-pvc1" {
     name   = "wp-pvc1"
     labels = {
       env     = "Production"
-      Country = "Malaysia" 
+      Country = "Spain" 
     }
   }
 
@@ -26,7 +26,7 @@ resource "kubernetes_deployment" "wp-dep" {
     name   = "wp-dep"
     labels = {
       env     = "Production"
-      Country = "Malaysia" 
+      Country = "Spain" 
     }
   }
   wait_for_rollout = false
@@ -37,7 +37,7 @@ resource "kubernetes_deployment" "wp-dep" {
       match_labels = {
         pod     = "wp"
         env     = "Production"
-        Country = "Malaysia" 
+        Country = "Spain" 
         
       }
     }
@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "wp-dep" {
         labels = {
           pod     = "wp"
           env     = "Production"
-          Country = "Malaysia"  
+          Country = "Spain"  
         }
       }
 
@@ -104,7 +104,7 @@ resource "kubernetes_service" "wpService" {
     name   = "wp-svc"
     labels = {
       env     = "Production"
-      Country = "Malaysia" 
+      Country = "Spain" 
     }
   }  
 
