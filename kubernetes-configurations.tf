@@ -126,7 +126,7 @@ resource "kubernetes_service" "wpService" {
 }
 
 //Wait For LoadBalancer to Register IPs
-resource "time_sleep" "wait_60_seconds" {
-  create_duration = "60s"
+resource "time_sleep" "wait_120_seconds" {
+  create_duration = "120s"
   depends_on = [kubernetes_service.wpService]  
 }

@@ -27,7 +27,6 @@
 
 ### EKS in AWS for Wordpress with Terraform
 
-
 1. VPC File:
 > It creates 1 VPC, 2 Subnet, Internet gateway and a Routing table attached with Internet gateway and associated with both subnets.
 
@@ -46,11 +45,19 @@
 6. Kubernetes Configuration File:
 > It creates a PVC for our deployment and then deploys a WordPress container linked with RDS as Database and a LoadBalancer service exposed at port 80.
 
-### Let Run Them!
-`Terraform init` → this will install requiered Plugins
+### Pre requirements
+1. Make sure to update your AWS credentials to deploy in your AWS account.
+2. clone project to a local path:
+`cd [desired path to perform deployment]`
+`git clone https://github.com/sonfrau/TF_AWS_K8S_WP.git`
 
-`Terraform Plan` → To check resources to be created.
+### Let run them!
+`terraform init` → this will install requiered Plugins
 
-`Terraform apply` → Execute every task.
+`terraform validate` → To validate the configuration to deploy.
 
-`Terraform destroy` → Destroy all AWS resources created by this repo.
+`terraform plan` → To check resources to be created.
+
+`terraform apply` → Execute every task.
+
+`terraform destroy` → Destroy all AWS resources created by this repo.
