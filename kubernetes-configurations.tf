@@ -1,4 +1,4 @@
-//Creating PVC for WordPress Pod
+// Creating PVC for WordPress Pod
 resource "kubernetes_persistent_volume_claim" "wp-pvc1" {
   metadata {
     name   = "wp-pvc1"
@@ -20,7 +20,7 @@ resource "kubernetes_persistent_volume_claim" "wp-pvc1" {
 }
 
 
-//Creating Deployment for WordPress
+// Creating Deployment for WordPress
 resource "kubernetes_deployment" "wp-dep" {
   metadata {
     name   = "wp-dep"
@@ -98,7 +98,7 @@ resource "kubernetes_deployment" "wp-dep" {
 }
 
 
-//Creating LoadBalancer Service for WordPress Pods
+// Creating LoadBalancer Service for WordPress Pods
 resource "kubernetes_service" "wpService" {
   metadata {
     name   = "wp-svc"
