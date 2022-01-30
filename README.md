@@ -29,22 +29,22 @@
 
 
 1. VPC File:
-> It creates 1 VPC, 2 Subnet, Internet gateway and a Routing table attached with Internet gateway and associated with both the subnet.
+> It creates 1 VPC, 2 Subnet, Internet gateway and a Routing table attached with Internet gateway and associated with both subnets.
 
 2. EKS-Cluster File:
-> It creates an IAM Role to allow EKS service to manage other AWS services. A security Group attached our VPC and allow 443(https) and Creates an EKS-Cluster.
+> It creates an IAM Role to allow EKS service to manage other AWS services. A security group attached our VPC and allow 443(https) and creates an EKS-Cluster.
 
 3. EKS-Worker-node File:
-> Creates IAM role allowing Kubernetes actions to access other AWS services and A EKS Node Group with 2 nodes with AMI AL2_x86_64 and t2.micro attrached with a key for ssh.
+> Creates IAM role allowing Kubernetes actions to access other AWS services and a EKS Node Group with 2 nodes with AMI AL2_x86_64 and t2.micro attached with a key for ssh.
 
 4. RDS File:
-> It creates a Database Instance of MySQL with username and password. These Credentials are stored in var.tf file.
+> It creates a Database Instance of MySQL with username and password. These credentials are stored in a var.tf file.
 
 5. Update KubeConfig File:
-> This file will update the Kube Configuration file with AWS EKS cluster.
+> This file will update the Kube Configuration file with the AWS EKS cluster name.
 
 6. Kubernetes Configuration File:
-> It creates a PVC for our deployment and then deploys a WordPress Container linked with RDS as Database and has a LoadBalancer service exposed at port 80.
+> It creates a PVC for our deployment and then deploys a WordPress container linked with RDS as Database and a LoadBalancer service exposed at port 80.
 
 ### Let Run Them!
 `Terraform init` → this will install requiered Plugins

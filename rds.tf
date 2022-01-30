@@ -8,9 +8,9 @@ resource "aws_db_instance" "default" {
   username             = var.RDS_username
   password             = var.RDS_password
   parameter_group_name = "default.mysql5.7"
-  identifier = "wordpress-db"
-  skip_final_snapshot = true
-  publicly_accessible = true
+  identifier           = "wordpress-db"
+  skip_final_snapshot  = true
+  publicly_accessible  = true
   //db_subnet_group_name = aws_db_subnet_group.default.id
   //vpc_security_group_ids = [aws_security_group.allow_rds.id]
 }

@@ -44,7 +44,7 @@ resource "aws_route_table" "seera" {
   }
 }
 
-resource "aws_route_table_association" "demo" {
+resource "aws_route_table_association" "seera" {
   count = 2
 
   subnet_id      = aws_subnet.seera.*.id[count.index]
