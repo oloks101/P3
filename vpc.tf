@@ -7,10 +7,10 @@
 resource "aws_vpc" "seera" {
   cidr_block = "192.168.0.0/24"
 
-  tags = map(
-    "Name", "mqbr-eks-node",
-    "kubernetes.io/cluster/${var.cluster-name}", "shared",
-  )
+  tags = {
+    "Name" = "mqbr-eks-node"
+    "kubernetes.io/cluster/${var.cluster-name}" = "shared"
+  }
 }
 
 resource "aws_subnet" "seera" {
@@ -21,10 +21,10 @@ resource "aws_subnet" "seera" {
   vpc_id            = aws_vpc.seera.id
   map_public_ip_on_launch = true
 
-  tags = map(
-    "Name", "mqbr-eks-node",
-    "kubernetes.io/cluster/${var.cluster-name}", "shared",
-  )
+  tags = {
+    "Name" = "mqbr-eks-node"
+    "kubernetes.io/cluster/${var.cluster-name}" = "shared"
+  }
 }
 
 resource "aws_internet_gateway" "seera" {
