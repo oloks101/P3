@@ -50,6 +50,7 @@
 2. clone project to a local path:
 
 `cd [desired path to perform deployment]`
+
 `git clone https://github.com/sonfrau/TF_AWS_K8S_WP.git`
 
 ### Let run them!
