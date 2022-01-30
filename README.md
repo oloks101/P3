@@ -48,6 +48,7 @@
 ### Pre requirements
 1. Make sure to update your AWS credentials to deploy in your AWS account.
 2. clone project to a local path:
+
 `cd [desired path to perform deployment]`
 `git clone https://github.com/sonfrau/TF_AWS_K8S_WP.git`
 
