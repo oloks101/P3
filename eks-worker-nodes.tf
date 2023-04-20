@@ -41,13 +41,12 @@ resource "aws_eks_node_group" "mqbr" {
   node_group_name = "seera"
   node_role_arn   = aws_iam_role.mqbr-node.arn
   subnet_ids      = aws_subnet.seera[*].id
-  instance_types  = ["t2.micro"]
+  instance_types  = ["t3.micro"]
   scaling_config {
     desired_size = 2
     max_size     = 2
     min_size     = 1
-  }
-
+   }
   remote_access {
     ec2_ssh_key = var.ssh_key_name
     source_security_group_ids = [aws_security_group.allow_http.id]

@@ -4,7 +4,7 @@ resource "kubernetes_persistent_volume_claim" "wp-pvc1" {
     name   = "wp-pvc1"
     labels = {
       env     = "Production"
-      Country = "Spain" 
+      Country = "US" 
     }
   }
 
@@ -26,7 +26,7 @@ resource "kubernetes_deployment" "wp-dep" {
     name   = "wp-dep"
     labels = {
       env     = "Production"
-      Country = "Spain" 
+      Country = "US" 
     }
   }
   wait_for_rollout = false
@@ -37,7 +37,7 @@ resource "kubernetes_deployment" "wp-dep" {
       match_labels = {
         pod     = "wp"
         env     = "Production"
-        Country = "Spain" 
+        Country = "US" 
         
       }
     }
@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "wp-dep" {
         labels = {
           pod     = "wp"
           env     = "Production"
-          Country = "Spain"  
+          Country = "US"  
         }
       }
 
@@ -77,7 +77,7 @@ resource "kubernetes_deployment" "wp-dep" {
           }
           env{
             name  = "WORDPRESS_DB_NAME"
-            value = aws_db_instance.default.name
+            value = aws_db_instance.default.db_name
           }
           env{
             name  = "WORDPRESS_TABLE_PREFIX"
@@ -104,7 +104,7 @@ resource "kubernetes_service" "wpService" {
     name   = "wp-svc"
     labels = {
       env     = "Production"
-      Country = "Spain" 
+      Country = "US" 
     }
   }  
 
@@ -130,4 +130,3 @@ resource "time_sleep" "wait_60_seconds" {
   create_duration = "60s"
   depends_on = [kubernetes_service.wpService]  
 }
-
